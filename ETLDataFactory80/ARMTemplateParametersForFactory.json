@@ -19,6 +19,9 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "roshan"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/e5651ef5-919c-471f-80c6-d949378cbe80/resourceGroups/CustomerFeedbackRG/providers/Microsoft.Storage/storageAccounts/rxstorageac"
 		}
 	}
 }
