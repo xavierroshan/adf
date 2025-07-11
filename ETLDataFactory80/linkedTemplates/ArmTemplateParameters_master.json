@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"factoryName": {
-			"value": "ETLDataFactory80"
+			"value": "etldatafactory80"
 		},
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
@@ -18,6 +18,12 @@
 			"value": ""
 		},
 		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"BlobStoragePara_connectionString": {
 			"value": ""
 		},
 		"AzureSQLProductsTb_properties_typeProperties_server": {
@@ -45,6 +51,15 @@
 			"value": "ETLdb"
 		},
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "roshan"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "etlserver80.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "ETLdb"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
 			"value": "roshan"
 		},
 		"containerUri": {
