@@ -18,7 +18,11 @@
 						"referenceName": "DelimitedText3",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -39,7 +43,6 @@
 				"source1 select(mapColumn(",
 				"          month,",
 				"          revenue = sales,",
-				"          profit,",
 				"          location",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
