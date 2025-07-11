@@ -22,6 +22,12 @@
 		},
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/e5651ef5-919c-471f-80c6-d949378cbe80/resourceGroups/CustomerFeedbackRG/providers/Microsoft.Storage/storageAccounts/rxstorageac"
+		},
+		"tubblingwindow_properties_pipeline_parameters_pstartdate": {
+			"value": "@trigger().outputs.windowstarttime"
+		},
+		"tubblingwindow_properties_pipeline_parameters_penddate": {
+			"value": "@trigger().outputs.windowsEndtime"
 		}
 	}
 }

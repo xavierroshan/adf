@@ -31,6 +31,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/e5651ef5-919c-471f-80c6-d949378cbe80/resourceGroups/CustomerFeedbackRG/providers/Microsoft.Storage/storageAccounts/rxstorageac"
 		},
+		"tubblingwindow_properties_pipeline_parameters_pstartdate": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowstarttime"
+		},
+		"tubblingwindow_properties_pipeline_parameters_penddate": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowsEndtime"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,6 +83,12 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"tubblingwindow_properties_pipeline_parameters_pstartdate": {
+						"value": "[parameters('tubblingwindow_properties_pipeline_parameters_pstartdate')]"
+					},
+					"tubblingwindow_properties_pipeline_parameters_penddate": {
+						"value": "[parameters('tubblingwindow_properties_pipeline_parameters_penddate')]"
 					}
 				}
 			},
