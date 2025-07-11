@@ -9,38 +9,54 @@
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "mumbai"
 				},
 				{
 					"dataset": {
 						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					},
-					"name": "source2"
+					"name": "nyc"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "BlobStore",
+						"type": "DatasetReference"
+					},
+					"name": "blob"
+				}
+			],
+			"transformations": [
+				{
+					"name": "union1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
-				"          emp_id as string,",
-				"          name as string,",
-				"          salary as string,",
-				"          address as string,",
-				"          loc as string,",
-				"          email as string",
+				"          month as string,",
+				"          sales as integer,",
+				"          profit as integer,",
+				"          location as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     ignoreNoFilesFound: false) ~> mumbai",
 				"source(output(",
-				"          user as string,",
-				"          department as string,",
-				"          designation as string",
+				"          month as string,",
+				"          sales as integer,",
+				"          profit as integer,",
+				"          location as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source2"
+				"     ignoreNoFilesFound: false) ~> nyc",
+				"mumbai, nyc union(byName: true)~> union1",
+				"union1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> blob"
 			]
 		}
 	}
