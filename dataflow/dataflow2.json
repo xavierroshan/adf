@@ -25,7 +25,11 @@
 						"referenceName": "BlobStore",
 						"type": "DatasetReference"
 					},
-					"name": "blob"
+					"name": "blob",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
