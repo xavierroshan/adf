@@ -33,11 +33,11 @@
 		},
 		"tubblingwindow_properties_pipeline_parameters_pstartdate": {
 			"type": "string",
-			"defaultValue": "@trigger().outputs.windowstarttime"
+			"defaultValue": "@trigger().outputs.windowStartTime"
 		},
 		"tubblingwindow_properties_pipeline_parameters_penddate": {
 			"type": "string",
-			"defaultValue": "@trigger().outputs.windowsEndtime"
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
