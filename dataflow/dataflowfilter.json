@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dataflowfilter",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -31,8 +31,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> source1",
-				"source1 filter(byName('category') == 'Accessories'",
-				") ~> filter1",
+				"source1 filter(byName('category') == 'Accessories') ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
