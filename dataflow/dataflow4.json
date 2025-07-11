@@ -18,7 +18,11 @@
 						"referenceName": "DelimitedText3",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage2",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -39,7 +43,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 derive(name = iif(isNull(name), 'unknown', name),",
-				"          salary = iif(isNull(salary),10000,salary)) ~> derivedColumn1",
+				"          salary = iif(isNull(salary),10000,salary),",
+				"          country = upper(address)) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
