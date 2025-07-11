@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "adfinput"
+				"container": "adfinput1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
