@@ -15,10 +15,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "BlobStoreLink",
-						"type": "DatasetReference"
-					},
 					"logStorageSettings": {
 						"linkedServiceName": {
 							"referenceName": "AzureBlobStorage1",
