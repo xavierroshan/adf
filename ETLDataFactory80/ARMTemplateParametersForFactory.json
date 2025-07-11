@@ -8,8 +8,26 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureSQLProductsTb_password": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_password": {
 			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"AzureSQLProductsTb_properties_typeProperties_server": {
+			"value": "etlserver80.database.windows.net"
+		},
+		"AzureSQLProductsTb_properties_typeProperties_database": {
+			"value": "ETLdb"
+		},
+		"AzureSQLProductsTb_properties_typeProperties_userName": {
+			"value": "roshan"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "etlserver80.database.windows.net"
@@ -20,14 +38,14 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "roshan"
 		},
-		"trigger1_properties_typeProperties_scope": {
-			"value": "/subscriptions/e5651ef5-919c-471f-80c6-d949378cbe80/resourceGroups/CustomerFeedbackRG/providers/Microsoft.Storage/storageAccounts/rxstorageac"
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "etlserver80.database.windows.net"
 		},
-		"tubblingwindow_properties_pipeline_parameters_pstartdate": {
-			"value": "@trigger().outputs.windowStartTime"
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "ETLdb"
 		},
-		"tubblingwindow_properties_pipeline_parameters_penddate": {
-			"value": "@trigger().outputs.windowEndTime"
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "roshan"
 		}
 	}
 }
