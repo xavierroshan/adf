@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "SQLToBlob_tumbling",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"pstartdate": "@formatDateTime(trigger().outputs.windowStartTime, 'yyyy-MM-dd HH:mm:ss')",
-					"penddate": "@formatDateTime(trigger().outputs.windowEndTime, 'yyyy-MM-dd HH:mm:ss')"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {

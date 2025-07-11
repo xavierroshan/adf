@@ -3,16 +3,6 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "SQLToBlob_tumbling",
-				"type": "PipelineReference"
-			},
-			"parameters": {
-				"pstartdate": "@trigger().outputs.windowStartTime",
-				"penddate": "@trigger().outputs.windowEndTime"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
