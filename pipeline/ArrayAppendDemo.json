@@ -1,0 +1,77 @@
+{
+	"name": "ArrayAppendDemo",
+	"properties": {
+		"activities": [
+			{
+				"name": "SetInitialArray",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "myArray",
+					"value": {
+						"value": "@createArray(10, 20, 30)\n",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "SetInitialArray",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "myArray",
+					"value": {
+						"value": "40",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "ConvertToString",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "resultString",
+					"value": {
+						"value": "@string(variables('myArray'))\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"myArray": {
+				"type": "Array"
+			},
+			"resultString": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
