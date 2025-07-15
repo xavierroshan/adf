@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
 		},
+		"AzureSqlDatabase4_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase4'"
+		},
 		"BlobStoragePara_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BlobStoragePara'"
@@ -83,6 +87,18 @@
 			"type": "string",
 			"defaultValue": "roshan"
 		},
+		"AzureSqlDatabase4_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "etlserver80.database.windows.net"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ETLdb"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "roshan"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -128,6 +144,9 @@
 					"AzureSqlDatabase3_password": {
 						"value": "[parameters('AzureSqlDatabase3_password')]"
 					},
+					"AzureSqlDatabase4_password": {
+						"value": "[parameters('AzureSqlDatabase4_password')]"
+					},
 					"BlobStoragePara_connectionString": {
 						"value": "[parameters('BlobStoragePara_connectionString')]"
 					},
@@ -166,10 +185,39 @@
 					},
 					"AzureSqlDatabase3_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "ETLDataFactory80_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ETLDataFactory80_ArmTemplate_0')]"
+			]
 		}
 	]
 }
