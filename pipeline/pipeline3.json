@@ -39,6 +39,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"outputString": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
