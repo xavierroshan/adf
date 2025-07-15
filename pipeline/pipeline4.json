@@ -132,37 +132,18 @@
 					],
 					"defaultActivities": [
 						{
-							"name": "csv",
-							"type": "Copy",
+							"name": "Set variable1",
+							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
 								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "DelimitedTextSource",
-									"storeSettings": {
-										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "DelimitedTextReadSettings"
-									}
-								},
-								"enableStaging": false
-							},
-							"inputs": [
-								{
-									"referenceName": "datasetcsv",
-									"type": "DatasetReference"
-								}
-							]
+								"variableName": "errorMessage",
+								"value": "@concat('Unsupported file type: ', pipeline().parameters.fileType)\n"
+							}
 						}
 					]
 				}
@@ -172,6 +153,11 @@
 			"fileType": {
 				"type": "string",
 				"defaultValue": "csv"
+			}
+		},
+		"variables": {
+			"errorMessage": {
+				"type": "String"
 			}
 		},
 		"annotations": []
