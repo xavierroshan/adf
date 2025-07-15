@@ -14,6 +14,10 @@
 					"value": "@utcNow()",
 					"type": "Expression"
 				},
+				"folderPath": {
+					"value": "@string(dayOfYear(utcNow()))\n\n",
+					"type": "Expression"
+				},
 				"container": "adfoutput"
 			},
 			"columnDelimiter": ",",
