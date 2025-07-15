@@ -434,7 +434,7 @@
 								"type": "AzureBlobStorageReadSettings",
 								"recursive": true,
 								"wildcardFileName": {
-									"value": "*master",
+									"value": "*master*",
 									"type": "Expression"
 								},
 								"enablePartitionDiscovery": false
