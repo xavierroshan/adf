@@ -55,6 +55,10 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
+								"expression": {
+									"value": "@contains(item().name, 'department')\n",
+									"type": "Expression"
+								},
 								"ifFalseActivities": [
 									{
 										"name": "Copy data2",
@@ -172,7 +176,10 @@
 												"referenceName": "adfinputdataset",
 												"type": "DatasetReference",
 												"parameters": {
-													"filename": "filename = @item().name"
+													"filename": {
+														"value": "@item().name",
+														"type": "Expression"
+													}
 												}
 											}
 										],
@@ -181,7 +188,7 @@
 												"referenceName": "adfoutput1dataset",
 												"type": "DatasetReference",
 												"parameters": {
-													"filename": "filename = @item().name"
+													"filename": "@item().name"
 												}
 											}
 										]
