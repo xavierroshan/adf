@@ -151,9 +151,6 @@
 			}
 		],
 		"parameters": {
-			"fileName": {
-				"type": "string"
-			},
 			"fileType": {
 				"type": "string"
 			}
