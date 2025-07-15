@@ -139,7 +139,10 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"message": "@concat('Unsupported file type: ', pipeline().parameters.fileType)",
+								"message": {
+									"value": "@concat('Unsupported file type: ', pipeline().parameters.fileType)",
+									"type": "Expression"
+								},
 								"errorCode": {
 									"value": "\"UNSUPPORTED_FILE_TYPE\"",
 									"type": "Expression"
