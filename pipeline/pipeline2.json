@@ -1,0 +1,139 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "UtillSumLoop",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(variables('current'), variables('nth'))\n\n",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "setSum",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "tempSum",
+								"value": {
+									"value": "@add(variables('sum'), variables('current'))\n",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "sum",
+								"value": {
+									"value": "@variables('tempSum')\n",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "nextCurrent",
+								"value": {
+									"value": "@add(variables('current'), 1)\n",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable3",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "current",
+								"value": {
+									"value": "@variables('nextCurrent')\n",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			},
+			{
+				"name": "Set variable4",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "UtillSumLoop",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "finalSumString",
+					"value": {
+						"value": "@string(variables('sum'))\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"current": {
+				"type": "Integer",
+				"defaultValue": 1
+			},
+			"nth": {
+				"type": "Integer",
+				"defaultValue": 40
+			},
+			"sum": {
+				"type": "Integer",
+				"defaultValue": 0
+			},
+			"tempSum": {
+				"type": "Integer",
+				"defaultValue": 0
+			},
+			"nextCurrent": {
+				"type": "Integer"
+			},
+			"finalSumString": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
