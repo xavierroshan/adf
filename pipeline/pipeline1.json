@@ -12,7 +12,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "current",
+					"variableName": "x",
 					"value": {
 						"value": "@int('50')",
 						"type": "Expression"
@@ -29,7 +29,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "nth",
+					"variableName": "y",
 					"value": {
 						"value": "@int('100')",
 						"type": "Expression"
@@ -59,7 +59,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "sum",
+					"variableName": "z",
 					"value": {
 						"value": "@add(variables('x'), variables('y'))\n",
 						"type": "Expression"
