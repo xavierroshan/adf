@@ -34,7 +34,7 @@
 				"typeProperties": {
 					"variableName": "myArray",
 					"value": {
-						"value": "40",
+						"value": "@int(40)\n",
 						"type": "Expression"
 					}
 				}
