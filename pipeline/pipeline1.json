@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
+				"name": "Get Metadata",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -36,7 +36,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "Get Metadata",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -50,7 +50,7 @@
 					},
 					"activities": [
 						{
-							"name": "If Condition1",
+							"name": "IfContainsDepartment",
 							"type": "IfCondition",
 							"dependsOn": [],
 							"userProperties": [],
@@ -59,75 +59,9 @@
 									"value": "@contains(item().name, 'department')\n",
 									"type": "Expression"
 								},
-								"ifFalseActivities": [
-									{
-										"name": "Copy data2",
-										"type": "Copy",
-										"dependsOn": [],
-										"policy": {
-											"timeout": "0.12:00:00",
-											"retry": 0,
-											"retryIntervalInSeconds": 30,
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"source": {
-												"type": "DelimitedTextSource",
-												"storeSettings": {
-													"type": "AzureBlobStorageReadSettings",
-													"recursive": true,
-													"enablePartitionDiscovery": false
-												},
-												"formatSettings": {
-													"type": "DelimitedTextReadSettings"
-												}
-											},
-											"sink": {
-												"type": "DelimitedTextSink",
-												"storeSettings": {
-													"type": "AzureBlobStorageWriteSettings"
-												},
-												"formatSettings": {
-													"type": "DelimitedTextWriteSettings",
-													"quoteAllText": true,
-													"fileExtension": ".txt"
-												}
-											},
-											"enableStaging": false,
-											"translator": {
-												"type": "TabularTranslator",
-												"typeConversion": true,
-												"typeConversionSettings": {
-													"allowDataTruncation": true,
-													"treatBooleanAsNumber": false
-												}
-											}
-										},
-										"inputs": [
-											{
-												"referenceName": "adfoutputdataset",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename": "filename = @item().name"
-												}
-											}
-										],
-										"outputs": [
-											{
-												"referenceName": "adfoutputdataset",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename": "filename = @item().name"
-												}
-											}
-										]
-									}
-								],
 								"ifTrueActivities": [
 									{
-										"name": "Copy data1",
+										"name": "CopyToADFOutput",
 										"type": "Copy",
 										"dependsOn": [],
 										"policy": {
@@ -176,16 +110,13 @@
 												"referenceName": "adfinputdataset",
 												"type": "DatasetReference",
 												"parameters": {
-													"filename": {
-														"value": "@item().name",
-														"type": "Expression"
-													}
+													"filename": "@item().name"
 												}
 											}
 										],
 										"outputs": [
 											{
-												"referenceName": "adfoutput1dataset",
+												"referenceName": "adfoutputdataset",
 												"type": "DatasetReference",
 												"parameters": {
 													"filename": "@item().name"
