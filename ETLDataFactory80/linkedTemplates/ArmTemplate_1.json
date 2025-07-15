@@ -283,7 +283,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline4')]",
+			"name": "[concat(parameters('factoryName'), '/filetype')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -303,7 +303,7 @@
 									"value": "csv",
 									"activities": [
 										{
-											"name": "Copy data2",
+											"name": "Copy data1",
 											"type": "Copy",
 											"dependsOn": [],
 											"policy": {
@@ -369,7 +369,7 @@
 									"value": "json",
 									"activities": [
 										{
-											"name": "Copy data3",
+											"name": "Copy data2",
 											"type": "Copy",
 											"dependsOn": [],
 											"policy": {
@@ -421,6 +421,21 @@
 										}
 									]
 								}
+							],
+							"defaultActivities": [
+								{
+									"name": "Fail1",
+									"type": "Fail",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"message": "@concat('Unsupported file type: ', pipeline().parameters.fileType)",
+										"errorCode": {
+											"value": "\"UNSUPPORTED_FILE_TYPE\"",
+											"type": "Expression"
+										}
+									}
+								}
 							]
 						}
 					}
@@ -429,14 +444,11 @@
 					"elapsedTimeMetric": {}
 				},
 				"parameters": {
+					"fileName": {
+						"type": "string"
+					},
 					"fileType": {
-						"type": "string",
-						"defaultValue": "csv"
-					}
-				},
-				"variables": {
-					"errorMessage": {
-						"type": "String"
+						"type": "string"
 					}
 				},
 				"annotations": []
