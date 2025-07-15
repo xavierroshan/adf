@@ -1,0 +1,40 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(variables('current'), pipeline().parameters.inputNumber)",
+						"type": "Expression"
+					},
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"parameters": {
+			"inputNumber": {
+				"type": "int",
+				"defaultValue": 40
+			},
+			"current": {
+				"type": "int",
+				"defaultValue": 1
+			},
+			"totalSum": {
+				"type": "int",
+				"defaultValue": 0
+			}
+		},
+		"variables": {
+			"x": {
+				"type": "Integer"
+			}
+		},
+		"annotations": []
+	}
+}
