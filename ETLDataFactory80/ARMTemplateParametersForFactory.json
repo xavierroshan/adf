@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"factoryName": {
-			"value": "etldatafactory80"
+			"value": "ETLDataFactory80"
 		},
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
