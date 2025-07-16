@@ -94,7 +94,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"source": {
-											"type": "DelimitedTextSource",
+											"type": "JsonSource",
 											"storeSettings": {
 												"type": "AzureBlobStorageReadSettings",
 												"recursive": true,
@@ -102,7 +102,7 @@
 												"enablePartitionDiscovery": false
 											},
 											"formatSettings": {
-												"type": "DelimitedTextReadSettings"
+												"type": "JsonReadSettings"
 											}
 										},
 										"sink": {
@@ -118,7 +118,7 @@
 									},
 									"inputs": [
 										{
-											"referenceName": "datasetjson",
+											"referenceName": "Json1",
 											"type": "DatasetReference"
 										}
 									],
