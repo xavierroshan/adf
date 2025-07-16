@@ -1,0 +1,30 @@
+{
+	"name": "webActivity_copy1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://dummy.restapiexample.com/api/v1/create",
+					"body": {
+						"name": "roshan",
+						"salary": "150000",
+						"age": "45"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
