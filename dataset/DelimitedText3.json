@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "sp500_stock_data.csv",
 				"container": "input"
 			},
 			"columnDelimiter": ",",
