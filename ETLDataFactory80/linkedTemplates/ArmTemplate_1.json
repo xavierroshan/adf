@@ -605,7 +605,7 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"storedProcedureName": "[[dbo].[deleteEmp]",
+										"storedProcedureName": "[[dbo].[deleteEmployee]",
 										"storedProcedureParameters": {
 											"id": {
 												"value": {
