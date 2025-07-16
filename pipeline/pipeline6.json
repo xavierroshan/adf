@@ -70,7 +70,13 @@
 									"outputs": [
 										{
 											"referenceName": "DelimitedText2",
-											"type": "DatasetReference"
+											"type": "DatasetReference",
+											"parameters": {
+												"Employee": {
+													"value": "@pipeline().parameters.foldername",
+													"type": "Expression"
+												}
+											}
 										}
 									]
 								}
