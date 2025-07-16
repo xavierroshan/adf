@@ -21,6 +21,20 @@
 				"typeProperties": {
 					"scripts": [
 						{
+							"parameters": [
+								{
+									"name": "start_date ",
+									"type": "Datetime",
+									"value": "2024-03-03",
+									"direction": "Input"
+								},
+								{
+									"name": "nd_date ",
+									"type": "Datetime",
+									"value": "2024-03-06",
+									"direction": "Input"
+								}
+							],
 							"type": "Query",
 							"text": "EXEC GetSalesBetweenDates @start_date = '2024-03-03', @end_date = '2024-03-06';\n\n"
 						}
