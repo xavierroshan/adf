@@ -139,7 +139,13 @@
 									"outputs": [
 										{
 											"referenceName": "DelimitedText4",
-											"type": "DatasetReference"
+											"type": "DatasetReference",
+											"parameters": {
+												"Department": {
+													"value": "@pipeline().parameters.foldername",
+													"type": "Expression"
+												}
+											}
 										}
 									]
 								}
