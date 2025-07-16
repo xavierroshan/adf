@@ -30,7 +30,9 @@
 									"referenceName": "DelimitedText9",
 									"type": "DatasetReference"
 								},
-								"fieldList": [],
+								"fieldList": [
+									"exists"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
