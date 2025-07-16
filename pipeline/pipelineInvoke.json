@@ -1,0 +1,27 @@
+{
+	"name": "pipelineInvoke",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline7",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"filename": "excluded_departments.csv"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
