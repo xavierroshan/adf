@@ -497,6 +497,410 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "input"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"$schema": {
+							"type": "string"
+						},
+						"contentVersion": {
+							"type": "string"
+						},
+						"parameters": {
+							"type": "object",
+							"properties": {
+								"factoryName": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureBlobStorage1_connectionString": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureBlobStorage2_connectionString": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSQLProductsTb_password": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase1_password": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase2_password": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase3_password": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"BlobStoragePara_connectionString": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"metadata": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSQLProductsTb_properties_typeProperties_server": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSQLProductsTb_properties_typeProperties_database": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSQLProductsTb_properties_typeProperties_userName": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase1_properties_typeProperties_server": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase1_properties_typeProperties_database": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase1_properties_typeProperties_userName": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase2_properties_typeProperties_server": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase2_properties_typeProperties_database": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase2_properties_typeProperties_userName": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase3_properties_typeProperties_server": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase3_properties_typeProperties_database": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								},
+								"AzureSqlDatabase3_properties_typeProperties_userName": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"defaultValue": {
+											"type": "string"
+										},
+										"value": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"variables": {
+							"type": "object",
+							"properties": {
+								"factoryId": {
+									"type": "string"
+								}
+							}
+						},
+						"resources": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									},
+									"apiVersion": {
+										"type": "string"
+									},
+									"properties": {
+										"type": "object",
+										"properties": {
+											"linkedServiceName": {
+												"type": "object",
+												"properties": {
+													"referenceName": {
+														"type": "string"
+													},
+													"type": {
+														"type": "string"
+													}
+												}
+											},
+											"parameters": {
+												"type": "object",
+												"properties": {
+													"table_name": {
+														"type": "object",
+														"properties": {
+															"type": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											},
+											"annotations": {
+												"type": "array"
+											},
+											"type": {
+												"type": "string"
+											},
+											"schema": {
+												"type": "array"
+											},
+											"typeProperties": {
+												"type": "object",
+												"properties": {
+													"table": {
+														"type": "object",
+														"properties": {
+															"value": {
+																"type": "string"
+															},
+															"type": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"dependsOn": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/FileCopyPipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1302,145 +1706,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DelimitedText5')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/filter')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Get Metadata1",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "DelimitedText6",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"fieldList": [
-								"childItems"
-							],
-							"storeSettings": {
-								"type": "AzureBlobStorageReadSettings",
-								"enablePartitionDiscovery": false
-							},
-							"formatSettings": {
-								"type": "DelimitedTextReadSettings"
-							}
-						}
-					},
-					{
-						"name": "Filter1",
-						"type": "Filter",
-						"dependsOn": [
-							{
-								"activity": "Get Metadata1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Metadata1').output.childItems",
-								"type": "Expression"
-							},
-							"condition": {
-								"value": "@contains(item().name,'department')",
-								"type": "Expression"
-							}
-						}
-					},
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Filter1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*department*",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DelimitedText7",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DelimitedText8",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DelimitedText6')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText7')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText8')]"
 			]
 		}
 	]
