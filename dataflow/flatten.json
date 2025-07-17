@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "flatten",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -12,13 +12,75 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText19",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				},
+				{
+					"name": "flatten2"
+				}
+			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          customer as string,",
+				"          items as (details as (color as string, warranty as string), item_id as string, item_name as string, price as double, qty as short)[],",
+				"          order_date as date,",
+				"          order_id as short,",
+				"          shipping as (cost as double, method as string, status as string)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> source1"
+				"     documentForm: 'arrayOfDocuments') ~> source1",
+				"source1 foldDown(unroll(items),",
+				"     mapColumn(",
+				"          details = items.details,",
+				"          item_id = items.item_id,",
+				"          item_name = items.item_name,",
+				"          price = items.price,",
+				"          qty = items.qty,",
+				"          customer,",
+				"          order_date,",
+				"          order_id,",
+				"          shipping = shipping",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten1",
+				"flatten1 foldDown(unroll(shipping),",
+				"     mapColumn(",
+				"          cost = shipping.cost,",
+				"          method = shipping.method,",
+				"          status = shipping.status,",
+				"          details = item_id,",
+				"          item_id = item_name,",
+				"          color = details.color,",
+				"          warranty = details.warranty,",
+				"          price,",
+				"          qty,",
+				"          customer,",
+				"          order_date,",
+				"          order_id",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten2",
+				"flatten2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Symbol as string,",
+				"          {All-Time High} as string,",
+				"          {Current Price} as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
