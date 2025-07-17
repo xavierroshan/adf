@@ -1,5 +1,5 @@
 {
-	"name": "rank",
+	"name": "dataflow1",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -15,7 +15,7 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "rank1"
+					"name": "cast1"
 				}
 			],
 			"scriptLines": [
@@ -28,9 +28,11 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 rank(desc(salary, true),",
-				"     caseInsensitive: true,",
-				"     output(rank as long)) ~> rank1"
+				"source1 cast(output(",
+				"          emp_id as integer,",
+				"          salary as float",
+				"     ),",
+				"     errors: true) ~> cast1"
 			]
 		}
 	}

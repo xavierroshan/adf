@@ -1,5 +1,5 @@
 {
-	"name": "rank",
+	"name": "aggregate",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -15,22 +15,21 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "rank1"
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          emp_id as short,",
+				"          emp_id as integer,",
 				"          name as string,",
-				"          salary as short,",
+				"          salary as integer,",
 				"          loc as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 rank(desc(salary, true),",
-				"     caseInsensitive: true,",
-				"     output(rank as long)) ~> rank1"
+				"source1 aggregate(groupBy(loc),",
+				"     salary = sum(salary)) ~> aggregate1"
 			]
 		}
 	}
