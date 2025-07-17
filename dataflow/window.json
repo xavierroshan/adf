@@ -1,0 +1,37 @@
+{
+	"name": "window",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText18",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "window1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          emp_id as integer,",
+				"          name as string,",
+				"          salary as integer,",
+				"          loc as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 window(over(loc),",
+				"     desc(salary, true),",
+				"     sumSal = sum(salary)) ~> window1"
+			]
+		}
+	}
+}

@@ -1,12 +1,12 @@
 {
-	"name": "unpivot_needfix",
+	"name": "surrogate",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText16",
+						"referenceName": "DelimitedText17",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -15,10 +15,7 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "unpivot1"
-				},
-				{
-					"name": "derivedColumn1"
+					"name": "surrogateKey1"
 				}
 			],
 			"scriptLines": [
@@ -31,16 +28,9 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"derivedColumn1 unpivot(output(",
-				"          country as string,",
-				"          emp_count as string",
-				"     ),",
-				"     ungroupBy(india_int,",
-				"          usa_int),",
-				"     lateral: true,",
-				"     ignoreNullPivots: false) ~> unpivot1",
-				"source1 derive(india_int = toInteger(india),",
-				"          usa_int = toInteger(usa)) ~> derivedColumn1"
+				"source1 keyGenerate(output(primary_key as long),",
+				"     startAt: 1L,",
+				"     stepValue: 1L) ~> surrogateKey1"
 			]
 		}
 	}

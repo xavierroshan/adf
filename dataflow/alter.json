@@ -1,0 +1,36 @@
+{
+	"name": "alter",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText18",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          emp_id as short,",
+				"          name as string,",
+				"          salary as short,",
+				"          loc as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 alterRow(deleteIf(loc=='india'),",
+				"     updateIf(emp_id>=6)) ~> alterRow1"
+			]
+		}
+	}
+}
