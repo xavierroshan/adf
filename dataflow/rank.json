@@ -19,10 +19,16 @@
 				}
 			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          emp_id as short,",
+				"          name as string,",
+				"          salary as short,",
+				"          loc as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 rank(asc(ERROR_FUNCTION(''), true),",
+				"source1 rank(desc(loc, true),",
 				"     caseInsensitive: true,",
 				"     output(rank as long)) ~> rank1"
 			]
